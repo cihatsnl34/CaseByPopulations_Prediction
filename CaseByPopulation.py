@@ -29,7 +29,7 @@ Y=y.values
 #RASSAL AĞAÇLAR(RANDOM FOREST)
 
 from sklearn.ensemble import RandomForestRegressor
-rf_reg=RandomForestRegressor(n_estimators=10,random_state=0)
+rf_reg=RandomForestRegressor(n_estimators=14,random_state=0)
 rf_reg.fit(X,Y.ravel())
 
 print('Random Forest R2 degeri')
@@ -37,8 +37,9 @@ print(r2_score(Y, rf_reg.predict(X)))
 
 for i in ulkeler.values:
     print(veriler.iloc[i,0].values,":",i)
-    
- 
+
+print('Inputs')
 country=int(input("Ülke Kodunu Giriniz : "))
 pop=int(input("Nüfus Sayısını Girin : "))
+print('Outputs')
 print(rf_reg.predict([[country,pop]]))
